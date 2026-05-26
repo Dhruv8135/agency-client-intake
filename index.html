@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AeroInquire - Premium single-page interactive client inquiry form. Experience high-fidelity glassmorphic previews, auto-formatting inputs, and custom validations.">
+    <title>AeroInquire // Interactive Client Intake</title>
+    
+    <!-- Preconnect & Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Premium Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Premium Dynamic Animated Ambient Background Glows -->
+    <div class="bg-glows" aria-hidden="true">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <!-- Header Actions -->
+    <header class="app-header">
+        <div class="logo">Aero<span>Inquire</span></div>
+        <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle light/dark mode">
+            <i class="fas fa-moon moon-icon"></i>
+            <i class="fas fa-sun sun-icon"></i>
+        </button>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="main-container">
+        <div class="glass-card main-card split-layout">
+            
+            <!-- LEFT PANEL: Dynamic Live-Updating Preview Profile Card -->
+            <div class="preview-panel">
+                <div class="panel-background-pattern"></div>
+                <div class="preview-header">
+                    <span class="preview-badge"><i class="fas fa-circle-notch fa-spin"></i> Live Syncing</span>
+                    <h2 class="preview-title">Client Profile</h2>
+                </div>
+
+                <!-- Glassmorphic VIP Pass Preview Card -->
+                <div class="vip-preview-card">
+                    <div class="card-inner-glow"></div>
+                    <div class="vip-card-header">
+                        <div class="vip-avatar-container">
+                            <div class="vip-avatar" id="preview-avatar">CL</div>
+                        </div>
+                        <div class="vip-meta">
+                            <h3 id="preview-name">Creative Lead</h3>
+                            <span class="vip-badge-tag"><i class="fas fa-bolt"></i> Prospective Client</span>
+                        </div>
+                    </div>
+                    
+                    <div class="vip-card-body">
+                        <!-- Contact points -->
+                        <div class="preview-contact-item">
+                            <i class="far fa-envelope"></i>
+                            <span id="preview-email">email@example.com</span>
+                        </div>
+                        <div class="preview-contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <span id="preview-phone">(000) 000-0000</span>
+                        </div>
+
+                        <!-- Brief snippet -->
+                        <div class="preview-details-box">
+                            <span class="details-box-label">PROJECT DETAILS BRIEF:</span>
+                            <p id="preview-details">Add your project details to see this summary update in real-time...</p>
+                        </div>
+                    </div>
+
+                    <div class="vip-card-footer">
+                        <span class="secure-tag"><i class="fas fa-shield-halved"></i> AES-256 Secured Intake</span>
+                        <span class="date-tag" id="current-card-date">MAY 2026</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT PANEL: Interactive Client Inquiry Form -->
+            <div class="form-panel">
+                <div class="step-header">
+                    <h2 class="step-title-text">Start a Project</h2>
+                    <p class="step-subtitle-text">Fill in your details below to instantly connect with our digital agency.</p>
+                </div>
+
+                <form id="agency-inquiry-form" class="form-wrapper" novalidate>
+                    <div class="inputs-container">
+                        <!-- Full Name -->
+                        <div class="floating-input-group">
+                            <div class="input-icon-left"><i class="far fa-user"></i></div>
+                            <input type="text" id="client-name" class="floating-input" placeholder="Your name " required autocomplete="name">
+                            <label for="client-name" class="floating-label">Full Name</label>
+                            <span class="input-glow-bar"></span>
+                            <span class="field-error-msg" id="error-client-name">
+                                <i class="fas fa-info-circle"></i> Full name is required (min 2 characters)
+                            </span>
+                        </div>
+
+                        <!-- Email Address -->
+                        <div class="floating-input-group">
+                            <div class="input-icon-left"><i class="far fa-envelope"></i></div>
+                            <input type="email" id="client-email" class="floating-input" placeholder=" " required autocomplete="email">
+                            <label for="client-email" class="floating-label">Email Address</label>
+                            <span class="input-glow-bar"></span>
+                            <span class="field-error-msg" id="error-client-email">
+                                <i class="fas fa-info-circle"></i> Please enter a valid email address
+                            </span>
+                        </div>
+
+                        <!-- Phone Number -->
+                        <div class="floating-input-group">
+                            <div class="input-icon-left"><i class="fas fa-phone-alt"></i></div>
+                            <input type="tel" id="client-phone" class="floating-input" placeholder=" " required autocomplete="tel">
+                            <label for="client-phone" class="floating-label">Phone Number</label>
+                            <span class="input-glow-bar"></span>
+                            <span class="field-error-msg" id="error-client-phone">
+                                <i class="fas fa-info-circle"></i> Enter a valid phone number, e.g. (123) 456-7890
+                            </span>
+                        </div>
+
+                        <!-- Details Textarea -->
+                        <div class="floating-input-group textarea-group">
+                            <div class="input-icon-left textarea-icon"><i class="far fa-edit"></i></div>
+                            <textarea id="project-details" class="floating-input" placeholder=" " maxlength="300" required></textarea>
+                            <label for="project-details" class="floating-label">Project Details</label>
+                            <span class="input-glow-bar"></span>
+                            <div class="textarea-footer">
+                                <span class="field-error-msg" id="error-project-details">
+                                    <i class="fas fa-info-circle"></i> Details are required (min 15 characters)
+                                </span>
+                                <span class="char-count-badge" id="details-char-counter">0 / 300</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide-to-Verify CAPTCHA -->
+                    <div class="verification-slider-container" id="slider-root">
+                        <div class="slider-track" id="slider-track">
+                            <div class="slider-fill" id="slider-fill"></div>
+                            <span class="slider-text" id="slider-guide-text">SLIDE TO SECURE SUBMIT</span>
+                            <div class="slider-thumb" id="slider-thumb" role="button" aria-label="Slide to verify" tabindex="0">
+                                <i class="fas fa-lock"></i>
+                                <i class="fas fa-lock-open unlocked-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Real Submit Button (Hidden/Locked until slide-to-verify completed) -->
+                    <button type="submit" class="premium-submit-btn" id="real-submit-btn" disabled>
+                        <span class="btn-text">Transmit Secured Inquiry</span>
+                        <span class="btn-spinner"><i class="fas fa-circle-notch fa-spin"></i></span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Thank You Confirmation Screen (Absolute Overlay within Card) -->
+            <div class="success-overlay-container" id="success-screen-overlay">
+                <!-- High-performance particles overlay -->
+                <canvas id="confetti-canvas" class="confetti-canvas"></canvas>
+
+                <div class="success-content">
+                    <div class="checkmark-wrapper">
+                        <svg class="checkmark-svg" viewBox="0 0 52 52">
+                            <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                            <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                        </svg>
+                    </div>
+
+                    <h2 class="success-title">Submission Successful!</h2>
+                    <p class="success-desc">Thank you. Your project inquiry has been encrypted and recorded. We will connect with you shortly.</p>
+                    
+                    <!-- Secured Data ID badge -->
+                    <div class="inquiry-badge-tag">
+                        <span class="badge-icon"><i class="fas fa-fingerprint"></i></span>
+                        <span class="badge-label">TRANSACTION ID:</span>
+                        <span class="badge-id" id="intake-transaction-hash">INQ-000000</span>
+                    </div>
+
+                    <div class="inquiry-badge-tag" id="n8n-sync-tag" style="border-color: rgba(99, 102, 241, 0.25); background: rgba(99, 102, 241, 0.05); margin-top: -0.75rem;">
+                        <span class="badge-icon" style="color: #a855f7;"><i class="fas fa-circle-nodes"></i></span>
+                        <span class="badge-label">n8n WEBHOOK:</span>
+                        <span class="badge-id" id="n8n-status-text" style="background: rgba(168, 85, 247, 0.08); color: var(--text-title);">Syncing...</span>
+                    </div>
+
+                    <!-- Details Summary Box -->
+                    <div class="success-summary-box">
+                        <h3>Secured Summary Details</h3>
+                        <div class="success-summary-grid">
+                            <div>
+                                <span class="box-label">Lead Name</span>
+                                <p class="box-data" id="success-lead-name">--</p>
+                            </div>
+                            <div>
+                                <span class="box-label">Email Address</span>
+                                <p class="box-data" id="success-lead-email">--</p>
+                            </div>
+                            <div class="full-width-cell">
+                                <span class="box-label">Project Brief Scope</span>
+                                <p class="box-data" id="success-lead-details">--</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="nav-btn btn-primary-solid reset-form-btn" id="restart-form-btn">
+                        <i class="fas fa-undo-alt"></i> Submit Another Inquiry
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="app-footer">
+        <p>AeroInquire © 2026. Made with <i class="fas fa-heart"></i> for premium digital agency intake.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
